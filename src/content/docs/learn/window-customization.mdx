@@ -1,5 +1,7 @@
 ---
 title: Window Customization
+sidebar:
+  order: 1
 tableOfContents:
   maxHeadingLevel: 4
 ---
@@ -214,7 +216,7 @@ Add `cocoa` crate to dependencies so that we can use it to call the macOS native
 
     ```toml title="src-tauri/Cargo.toml"
     [target."cfg(target_os = \"macos\")".dependencies]
-    cocoa = "0.25"
+    cocoa = "0.26"
     ```
 
 Create the main window and change its background color:
@@ -222,7 +224,7 @@ Create the main window and change its background color:
     ```rust title="src-tauri/src/lib.rs"
     use tauri::{TitleBarStyle, WebviewUrl, WebviewWindowBuilder};
 
-    pub run() {
+    pub fn run() {
     	tauri::Builder::default()
     		.setup(|app| {
     			let win_builder =
